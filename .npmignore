@@ -1,0 +1,8 @@
+node_modules
+public
+src
+.gitignore
+.rts2_cache_cjs
+.rts2_cache_es
+.rts2_cache_modern
+.rts2_cache_umd

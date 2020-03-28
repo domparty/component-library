@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "start-storybook -p 9000 -s public",
-    "build:types": "tsc --emitDeclarationOnly"
+    "build": "rm -rf ./lib && npm run build:rollup",
+    "build:rollup": "rollup -c",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:components": "babel src/components/**/** --extensions \".ts,.tsx\" --out-dir ./dist/components"
   },
   "repository": {
     "type": "git",
@@ -18,13 +21,24 @@
   },
   "homepage": "https://github.com/domparty/component-library#readme",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-typescript": "^7.9.4",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
     "@storybook/react": "^5.3.17",
     "@types/react": "^16.9.26",
     "@types/react-dom": "^16.9.5",
     "babel-loader": "^8.1.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "rollup": "^2.2.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-multi-input": "^1.1.1",
     "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
