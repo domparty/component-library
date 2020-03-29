@@ -1,14 +1,19 @@
 {
   "name": "domparty-component-library",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Our white-label component library. Filled with functional components to help you kick-start your project 🚀",
   "main": "index.js",
   "scripts": {
     "start": "start-storybook -p 9000 -s public",
     "build": "rm -rf ./lib && npm run build:rollup",
+    "buildb": "rm -rf ./lib && npm run build:components",
     "build:rollup": "rollup -c",
     "build:types": "tsc --emitDeclarationOnly",
-    "build:components": "babel src/components/**/** --extensions \".ts,.tsx\" --out-dir ./dist/components"
+    "build:components": "babel ./src/components/**/* --out-dir components --extensions \".ts,.tsx\" --source-maps inline",
+    "build:r": "NODE_ENV=production babel --config-file ./babel.config.js ./src --out-dir ./build --extensions \".ts,.tsx\"",
+    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel --config-file ./babel.config.js ./src --out-dir ./build --ignore \"**/*.test.js\"",
+    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel --config-file ./babel.config.js ./src --out-dir ./build/esm --ignore \"**/*.test.js\"",
+    "build:es": "cross-env NODE_ENV=production BABEL_ENV=es babel --config-file ./babel.config.js ./src --out-dir ./build/es --ignore \"**/*.test.js\""
   },
   "repository": {
     "type": "git",
@@ -23,6 +28,8 @@
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-object-assign": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/plugin-transform-typescript": "^7.9.4",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
@@ -38,6 +45,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "goober": "^1.7.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
