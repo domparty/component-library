@@ -1,6 +1,6 @@
 {
   "name": "@domparty/fe",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "description": "Our white-label front-end component library. Filled with functional components to help you kick-start your project 🚀",
   "main": "index.js",
   "scripts": {
