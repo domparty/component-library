@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "start-storybook -p 9000 -s public",
-    "build": "rm -rf ./build && npm run build:components && npm run build:core",
-    "build:components": "microbundle ./src/components.ts -o ./build/components.js --name Components --jsx=React.createElement",
-    "build:core": "microbundle ./src/core/Core.tsx -o ./build/core.js --name Core --jsx=React.createElement"
+    "build": "rm -rf ./dist && npm run build:components && npm run build:core",
+    "build:components": "microbundle ./src/components.ts -o ./dist/components.js --name Components --jsx=React.createElement",
+    "build:core": "microbundle ./src/core/Core.tsx -o ./dist/core.js --name Core --jsx=React.createElement"
   },
   "repository": {
     "type": "git",
