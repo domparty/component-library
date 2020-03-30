@@ -2,3 +2,10 @@ node_modules
 dist
 lib
 types
+build
+components
+
+# Microbundle directories
+.rts2_cache_cjs
+.rts2_cache_es
+.rts2_cache_umd

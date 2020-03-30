@@ -2,7 +2,7 @@
   "compilerOptions": {
     "skipLibCheck": true,
     "target": "esnext",
-    "module": "commonjs",
+    "module": "es2015",
     "noImplicitAny": false,
     "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "react",
