@@ -4,7 +4,6 @@
   "description": "Our white-label front-end component library. Filled with functional components to help you kick-start your project 🚀",
   "main": "index.js",
   "scripts": {
-    "test:treeshake": "agadoo ./lib/components.js",
     "start": "start-storybook -p 9000 -s public",
     "build": "rm -rf ./build && npm run build:components && npm run build:core",
     "build:components": "microbundle ./src/components.ts -o ./build/components.js --name Components --jsx=React.createElement",
