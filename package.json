@@ -4,16 +4,14 @@
   "description": "Our white-label component library. Filled with functional components to help you kick-start your project 🚀",
   "main": "index.js",
   "scripts": {
+    "test:treeshake": "agadoo ./lib/components.js",
     "start": "start-storybook -p 9000 -s public",
     "buildr": "rm -rf ./lib && npm run build:rollup",
-    "build": "rm -rf ./lib && npm run build:components",
+    "build": "rm -rf ./lib && npm run build:components && npm run build:core",
     "build:rollup": "rollup -c",
     "build:types": "tsc --emitDeclarationOnly",
-    "build:components": "babel ./src/components/**/* --out-dir components --extensions \".ts,.tsx\" --source-maps inline",
-    "build:r": "NODE_ENV=production babel --config-file ./babel.config.js ./src --out-dir ./build --extensions \".ts,.tsx\"",
-    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel --config-file ./babel.config.js ./src --out-dir ./build --ignore \"**/*.test.js\"",
-    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel --config-file ./babel.config.js ./src --out-dir ./build/esm --ignore \"**/*.test.js\"",
-    "build:es": "cross-env NODE_ENV=production BABEL_ENV=es babel --config-file ./babel.config.js ./src --out-dir ./build/es --ignore \"**/*.test.js\""
+    "build:components": "babel ./src/components.ts --out-dir ./lib --extensions \".ts,.tsx\" --source-maps inline",
+    "build:core": "babel ./src/core/Core.tsx --extensions \".ts,.tsx\" --source-maps inline --out-file ./lib/core.js"
   },
   "repository": {
     "type": "git",
