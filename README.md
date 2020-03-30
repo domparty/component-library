@@ -8,13 +8,19 @@ website, while giving you the handles to kick-start you application with some he
 Install the component library using `npm i @domparty/fe`. This will make the library available for your project.
 Because @domparty/fe uses Goober internally to provide all neat CSS tricks, first implement our provider into your application.
 
+### Using Preact?
+
+If you're more into speedy apps, we have also implemented a provider for you! Instead of importing the provider from `@domparty/fe/core`,
+import the provider from `@domparty/fe/core/preact`. This way your application is using the Pragma from Preact, instead of React.
+
 ### Default React apps
 
 For default React apps, the following snippet can be used.
+_use `import { Provider } from '@domparty/fe/core/preact';` for Preact_
 
 ```
-import React from "react";
-import { Provider } from "@domparty/fe/core";
+import React from 'react';
+import { Provider } from '@domparty/fe/core';
 
 export default () => (
   <Provider value={{}}>
@@ -29,8 +35,8 @@ export default () => (
 To implement @domparty/fe into Next.js make sure the \_app.js file implements the <Provider /> component.
 
 ```
-import React from "react";
-import { Provider } from "@domparty/fe/core";
+import React from 'react';
+import { Provider } from '@domparty/fe/core';
 
 export default ({ Component, pageProps }) => (
   <Provider value={{}}>
@@ -46,8 +52,8 @@ To make sure all styles are rendered correctly on the server. The component libr
 To use this feature in Next.js apps, make sure the `getInitialProps` in your \_document file uses this function.
 
 ```
-import Document, { Head, Main, NextScript } from "next/document";
-import { extractCss } from "@domparty/fe/core";
+import Document, { Head, Main, NextScript } from 'next/document';
+import { extractCss } from '@domparty/fe/core';
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -63,7 +69,7 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <style
-            id={"_goober"}
+            id={'_goober'}
             // And defined it in here
             dangerouslySetInnerHTML={{ __html: this.props.css }}
           />
