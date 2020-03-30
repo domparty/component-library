@@ -15,7 +15,7 @@ import the provider from `@domparty/fe/core/preact`. This way your application i
 
 ### Default React apps
 
-For default React apps, the following snippet can be used.
+For default React apps, the following snippet can be used.  
 _use `import { Provider } from '@domparty/fe/core/preact';` for Preact_
 
 ```
