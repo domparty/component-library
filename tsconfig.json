@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "target": "esnext",
+    "module": "es2015",
+    "noImplicitAny": false,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "react",
+    "declaration": true,
+    "outDir": "./types",
+    "rootDir": "./src",
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["src/welcome"]
+}

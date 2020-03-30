@@ -1,0 +1,39 @@
+{
+  "name": "@domparty/fe",
+  "version": "0.0.2",
+  "description": "Our white-label front-end component library. Filled with functional components to help you kick-start your project 🚀",
+  "main": "dist/library.js",
+  "scripts": {
+    "start": "start-storybook -p 9000 -s public",
+    "build": "rm -rf ./dist && npm run build:components && npm run build:core",
+    "build:components": "microbundle ./src/library.ts -o ./components/index.js --name @domparty/fe --jsx=React.createElement",
+    "build:core": "microbundle ./src/core/Core.tsx -o ./core/index.js --name Core --jsx=React.createElement"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domparty/component-library.git"
+  },
+  "author": "The Domparty team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/domparty/component-library/issues"
+  },
+  "homepage": "https://github.com/domparty/component-library#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@storybook/react": "^5.3.17",
+    "@types/react": "^16.9.26",
+    "@types/react-dom": "^16.9.5",
+    "microbundle": "^0.12.0-next.8",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "goober": "^1.7.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
