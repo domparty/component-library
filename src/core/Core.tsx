@@ -1,5 +1,5 @@
-import React, { createContext } from "react";
-import { setPragma, extractCss as extractStyles } from "goober";
+import React, { createContext } from 'react';
+import { setPragma, extractCss as extractStyles } from 'goober';
 
 // Here is the best spot to call it
 setPragma(React.createElement);
