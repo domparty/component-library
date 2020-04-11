@@ -1,10 +1,11 @@
-node_modules
-dist
-lib
-types
-build
-components
-core
+/node_modules
+/dist
+/lib
+/types
+/build
+/components
+/core
+
 # Microbundle directories
 .rts2_cache_cjs
 .rts2_cache_es
