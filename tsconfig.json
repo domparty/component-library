@@ -2,7 +2,7 @@
   "compilerOptions": {
     "skipLibCheck": true,
     "target": "esnext",
-    "module": "es2015",
+    "module": "esnext",
     "noImplicitAny": false,
     "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "react",
@@ -10,6 +10,7 @@
     "outDir": "./types",
     "rootDir": "./src",
     "strict": true,
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
