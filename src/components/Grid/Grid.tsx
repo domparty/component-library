@@ -4,7 +4,7 @@ import { css } from 'goober';
 export interface GridProps {
   children: ReactElement[];
   breakpoints?: number[];
-  columns?: number | number[];
+  columns?: null | number | number[];
   gap?: number;
   fullHeight?: boolean;
   style?: {};
@@ -14,7 +14,7 @@ export interface GridProps {
 function Grid({
   children,
   breakpoints = [],
-  columns = [],
+  columns = null,
   gap = 0,
   fullHeight = false,
   slices = false,
@@ -23,6 +23,8 @@ function Grid({
   if (typeof children === 'undefined') return null;
   const childs = Array.isArray(children) === false ? [children] : children;
   let globalCount = 0;
+
+  if (columns === null) columns = 1;
 
   const wrapperStyle = {
     display: 'flex',
@@ -38,10 +40,12 @@ function Grid({
   };
 
   function renderChild(c) {
+    const dataColumns = c.props['data-columns'] || 1;
+
     const className = css`
       ${typeof columns === 'number'
         ? `
-        width: calc(${100 / columns}% - ${gap}px);
+        width: calc(${(100 / columns) * dataColumns}% - ${gap}px);
         margin: ${gap / 2}px;
       `
         : ''}
@@ -49,7 +53,6 @@ function Grid({
         .map((bp, i) => {
           const columnAmount =
             Array.isArray(columns) && typeof columns[i] !== 'undefined' ? columns[i] : 1;
-          const dataColumns = c.props['data-columns'] || 1;
 
           const gapDivided = gap / 2;
 

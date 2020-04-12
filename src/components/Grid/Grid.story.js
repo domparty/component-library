@@ -12,20 +12,39 @@ storiesOf('@domparty|Components', module).add('Grid', () => (
     <Hero />
     <br />
 
-    {/* <Grid gap={24} breakpoints={[200, 400]} columns={[1, 3]}>
+    <Grid gap={24} breakpoints={[200, 400]} columns={[1, 3]}>
       {div(2, 'black')}
       {div(1, 'black')}
       {div(1, 'black')}
       {div(2, 'black')}
       {div(3, 'black')}
-    </Grid> */}
+    </Grid>
+    <br />
 
-    <Grid gap={10} columns={2}>
+    <Grid gap={24} columns={2}>
       {div(1, 'black')}
       {div(1, 'black')}
       {div(1, 'black')}
       {div(1, 'black')}
-      {div(1, 'black')}
+    </Grid>
+
+    <Grid gap={24} columns={2}>
+      <div>
+        <Grid gap={24} columns={1}>
+          {div(1)}
+          {div(1)}
+          {div(1)}
+          {div(1)}
+        </Grid>
+      </div>
+      <div>
+        <Grid gap={24} columns={2}>
+          {div(2)}
+          {div(1)}
+          {div(1)}
+          {div(2)}
+        </Grid>
+      </div>
     </Grid>
   </>
 ));
