@@ -11,7 +11,7 @@ export interface GridProps {
   slices?: any;
 }
 
-function Grid({
+export default function Grid({
   children,
   breakpoints = [],
   columns = null,
@@ -80,5 +80,3 @@ function Grid({
     <div style={wrapperStyle}>{childs.map(renderChild)}</div>
   );
 }
-
-export default Grid;
