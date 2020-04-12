@@ -22,40 +22,40 @@ const simpleExample = `
 
 const advancedExample = `
 <Grid gap={24} columns={2}>
-<div>
-  <Grid gap={12} columns={4}>
-    <div data-columns={4} style={{ backgroundColor: '#C295D8' }} />
-    
-    <div data-columns={1} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={1} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={1} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={1} style={{ backgroundColor: '#C295D8' }} />
-    
-    <div data-columns={2 / 3} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={2 / 3} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={2 / 3} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={2 / 3} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={2 / 3} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={2 / 3} style={{ backgroundColor: '#C295D8' }} />
+  <div>
+    <Grid gap={12} columns={4}>
+      <div data-columns={4} style={{ backgroundColor: '#C295D8' }} />
+      
+      <div data-columns={1} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={1} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={1} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={1} style={{ backgroundColor: '#C295D8' }} />
+      
+      <div data-columns={2 / 3} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={2 / 3} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={2 / 3} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={2 / 3} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={2 / 3} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={2 / 3} style={{ backgroundColor: '#C295D8' }} />
 
-    <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
-  </Grid>
-</div>
-<div>
-  <Grid gap={12} columns={2}>
-    <div data-columns={2} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={1} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={1} style={{ backgroundColor: '#C295D8' }} />
-    <div data-columns={2} style={{ backgroundColor: '#C295D8' }} />
-  </Grid>
-</div>
+      <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
+    </Grid>
+  </div>
+  <div>
+    <Grid gap={12} columns={2}>
+      <div data-columns={2} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={1} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={1} style={{ backgroundColor: '#C295D8' }} />
+      <div data-columns={2} style={{ backgroundColor: '#C295D8' }} />
+    </Grid>
+  </div>
 </Grid>
 `;
 
