@@ -11,17 +11,6 @@ export interface GridProps {
   slices?: any;
 }
 
-function getValueFromIndex(a, i, f = undefined) {
-  if (f !== undefined && i > a.length - 1) return f;
-  return a[
-    Math.min(
-      // @ts-ignore
-      a.length - 1,
-      i
-    )
-  ];
-}
-
 function Grid({
   children,
   breakpoints = [],
@@ -38,6 +27,7 @@ function Grid({
   const wrapperStyle = {
     display: 'flex',
     flexWrap: 'wrap',
+    margin: -(gap / 2),
     ...innerStyle,
     ...(fullHeight
       ? {
@@ -54,17 +44,18 @@ function Grid({
         .map((bp, i) => {
           const columnAmount =
             Array.isArray(columns) && typeof columns[i] !== 'undefined' ? columns[i] : 1;
+          const dataColumns = c.props['data-columns'] || 1;
 
           const gapDivided = gap / 2;
 
-          const marginLeft = globalCount % columnAmount === 0 ? 0 : gapDivided;
-          const marginRight = globalCount % columnAmount === columnAmount - 1 ? 0 : gapDivided;
+          const marginLeft = gapDivided;
+          const marginRight = gapDivided;
 
-          const f = columnAmount > 1 ? (columnAmount === 2 ? 0.5 : 1 - 1 / columnAmount) : 0;
+          const widthEach = 100 / columnAmount;
 
           return `
             @media(min-width: ${bp}px) {
-              width: calc(${100 / columnAmount}% - ${f * gap}px);
+              width: calc(${widthEach * dataColumns}% - ${gap}px);
               margin-bottom: ${gapDivided}px;
               margin-top: ${gapDivided}px;
               margin-left: ${marginLeft}px;
