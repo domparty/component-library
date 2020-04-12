@@ -3,8 +3,8 @@ import React from 'react';
 import Grid from './Grid.tsx';
 import Hero from '../../storybook/Hero';
 
-const div = (columns = 1, color = '#C295D8') => (
-  <div data-columns={columns} style={{ backgroundColor: color, height: 30 }} />
+const div = (columns = 1, color = '#C295D8', height = 30) => (
+  <div data-columns={columns} style={{ backgroundColor: color, height }} />
 );
 
 storiesOf('@domparty|Components', module).add('Grid', () => (
@@ -30,15 +30,12 @@ storiesOf('@domparty|Components', module).add('Grid', () => (
 
     <Grid gap={24} columns={2}>
       <div>
-        <Grid gap={24} columns={1}>
-          {div(1)}
-          {div(1)}
-          {div(1)}
-          {div(1)}
+        <Grid fullHeight gap={12} columns={1}>
+          {div(1, '#C295D8', 'auto')}
         </Grid>
       </div>
       <div>
-        <Grid gap={24} columns={2}>
+        <Grid gap={12} columns={2}>
           {div(2)}
           {div(1)}
           {div(1)}
