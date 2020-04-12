@@ -39,7 +39,12 @@ function Grid({
 
   function renderChild(c) {
     const className = css`
-      ${typeof columns === 'number' ? `width: ${100 / columns}%;` : ''}
+      ${typeof columns === 'number'
+        ? `
+        width: calc(${100 / columns}% - ${gap}px);
+        margin: ${gap / 2}px;
+      `
+        : ''}
       ${breakpoints
         .map((bp, i) => {
           const columnAmount =

@@ -10,17 +10,22 @@ const div = (columns = 1, color = '#C295D8') => (
 storiesOf('@domparty|Components', module).add('Grid', () => (
   <>
     <Hero />
-    <Grid gap={10} breakpoints={[200, 400]} columns={[1, 5]}>
-      {[...Array(15).keys()].map((i) => div())}
-    </Grid>
+    <br />
 
-    <Grid gap={10} breakpoints={[200, 400]} columns={[1, 3]}>
+    {/* <Grid gap={24} breakpoints={[200, 400]} columns={[1, 3]}>
       {div(2, 'black')}
       {div(1, 'black')}
-    </Grid>
+      {div(1, 'black')}
+      {div(2, 'black')}
+      {div(3, 'black')}
+    </Grid> */}
 
-    <Grid gap={10} breakpoints={[200, 400]} columns={[1, 4]}>
-      {[...Array(6).keys()].map((i) => div(2))}
+    <Grid gap={10} columns={2}>
+      {div(1, 'black')}
+      {div(1, 'black')}
+      {div(1, 'black')}
+      {div(1, 'black')}
+      {div(1, 'black')}
     </Grid>
   </>
 ));
