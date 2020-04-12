@@ -17,12 +17,10 @@ function Grid({
   columns = null,
   gap = 0,
   fullHeight = false,
-  slices = false,
   style: innerStyle = {},
 }: GridProps) {
   if (typeof children === 'undefined') return null;
   const childs = Array.isArray(children) === false ? [children] : children;
-  let globalCount = 0;
 
   if (columns === null) columns = 1;
 
@@ -73,8 +71,6 @@ function Grid({
         })
         .join('')}
     `;
-
-    globalCount += 1;
 
     return cloneElement(c, { className });
   }
