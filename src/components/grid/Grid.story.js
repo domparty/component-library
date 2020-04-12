@@ -37,7 +37,6 @@ const advancedExample = `
       <div data-columns={2 / 3} style={{ backgroundColor: '#C295D8' }} />
       <div data-columns={2 / 3} style={{ backgroundColor: '#C295D8' }} />
       <div data-columns={2 / 3} style={{ backgroundColor: '#C295D8' }} />
-
       <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
       <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
       <div data-columns={0.5} style={{ backgroundColor: '#C295D8' }} />
