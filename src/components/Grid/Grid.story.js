@@ -59,9 +59,9 @@ const advancedExample = `
 </Grid>
 `;
 
-storiesOf('@domparty|Components', module).add('Grid', () => (
+storiesOf('@domparty|Components', module).add('Grid', (data) => (
   <>
-    <Hero title="Grid component" />
+    <Hero data={data} title="Grid component" />
 
     <Page>
       <Description>

@@ -1,5 +1,7 @@
 import React from 'react';
 import { styled } from 'goober';
+import ImportPath from './ImportPath';
+import config from './config';
 
 const heroHeight = 250;
 
@@ -23,10 +25,23 @@ const Title = styled('h1')`
   }
 `;
 
-function Hero({ title }) {
+const Import = styled('div')`
+  color: ${config.primaryColor};
+  padding-top: 24px;
+  padding-left: 48px;
+
+  @media (min-width: 1100px) {
+    padding-left: 88px;
+  }
+`;
+
+function Hero({ title, data = {} }) {
   return (
     <Div>
       <Title>{title}</Title>
+      <Import>
+        <ImportPath data={data} />
+      </Import>
     </Div>
   );
 }
