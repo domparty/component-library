@@ -2,7 +2,12 @@ import React from 'react';
 import { styled } from 'goober';
 
 const P = styled('p')`
-  width: calc((100% / 3) * 2);
+  width: 80%;
+
+  @media (min-width: 1100px) {
+    width: calc((100% / 3) * 2);
+  }
+
   padding: 12px 0;
   font-size: 1rem;
   font-weight: 400;

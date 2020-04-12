@@ -15,13 +15,23 @@ const Description = styled('p')`
 `;
 
 const CodeWrapper = styled('div')`
-  width: ${width}%;
+  width: 80%;
+
+  @media (min-width: 1100px) {
+    width: ${width}%;
+  }
+
   padding: 12px 0;
 `;
 
 const ChildrenWrapper = styled('div')`
+  width: 80%;
+
+  @media (min-width: 1100px) {
+    width: ${width}%;
+  }
+
   padding: 12px 0;
-  width: ${width}%;
 `;
 
 function Example({ title, description, children, code }) {
