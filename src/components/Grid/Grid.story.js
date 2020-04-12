@@ -6,9 +6,9 @@ import Hero from '../../storybook/Hero';
 storiesOf('@domparty|Components', module).add('Grid', () => (
   <>
     <Hero />
-    <Grid gap={20} breakpoints={[200, 400]} columns={[2, 3]}>
-      {[...Array(5).keys()].map((i) => (
-        <div style={{ border: '1px solid #C295D8' }}>Hey {i}</div>
+    <Grid gap={10} breakpoints={[200, 400]} columns={[1, 5]}>
+      {[...Array(25).keys()].map((i) => (
+        <div style={{ backgroundColor: '#C295D8', display: 'block', height: 50 }} />
       ))}
     </Grid>
   </>

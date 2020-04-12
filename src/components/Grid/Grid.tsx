@@ -38,7 +38,6 @@ function Grid({
   const wrapperStyle = {
     display: 'flex',
     flexWrap: 'wrap',
-    margin: -(gap / 2),
     ...innerStyle,
     ...(fullHeight
       ? {
@@ -61,9 +60,11 @@ function Grid({
           const marginLeft = globalCount % columnAmount === 0 ? 0 : gapDivided;
           const marginRight = globalCount % columnAmount === columnAmount - 1 ? 0 : gapDivided;
 
+          const f = columnAmount > 1 ? (columnAmount === 2 ? 0.5 : 1 - 1 / columnAmount) : 0;
+
           return `
             @media(min-width: ${bp}px) {
-              width: calc(${100 / columnAmount}% - ${gapDivided + columnAmount * 2}px);
+              width: calc(${100 / columnAmount}% - ${f * gap}px);
               margin-bottom: ${gapDivided}px;
               margin-top: ${gapDivided}px;
               margin-left: ${marginLeft}px;
