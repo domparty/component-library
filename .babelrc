@@ -1,7 +1,14 @@
 {
-  "presets": [
-    "@babel/preset-typescript",
-    "@babel/preset-env",
-    "@babel/preset-react"
+  "presets": ["@babel/preset-typescript", "@babel/preset-env", "@babel/preset-react"],
+  "plugins": [
+    [
+      "prismjs",
+      {
+        "languages": ["javascript", "css", "typescript", "jsx"],
+        "plugins": ["line-numbers"],
+        "theme": "okaidia",
+        "css": true
+      }
+    ]
   ]
 }
