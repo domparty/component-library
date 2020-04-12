@@ -51,10 +51,14 @@ export default function Grid({
         .map((bp, i) => {
           const columnAmount =
             Array.isArray(columns) && typeof columns[i] !== 'undefined' ? columns[i] : 1;
+
           const gapDivided = gap / 2;
+
           const marginLeft = gapDivided;
           const marginRight = gapDivided;
+
           const widthEach = 100 / columnAmount;
+
           return `
             @media(min-width: ${bp}px) {
               width: calc(${widthEach * dataColumns}% - ${gap}px);
