@@ -1,5 +1,6 @@
 import React from 'react';
 import { styled } from 'goober';
+import copyclip from 'copyclip';
 import ImportPath from './ImportPath';
 import config from './config';
 
@@ -29,6 +30,7 @@ const Import = styled('div')`
   color: ${config.primaryColor};
   padding-top: 24px;
   padding-left: 48px;
+  cursor: pointer;
 
   @media (min-width: 1100px) {
     padding-left: 88px;
@@ -36,12 +38,16 @@ const Import = styled('div')`
 `;
 
 function Hero({ title, data = {} }) {
+  const path = ImportPath({ data });
+
+  function onPathClick() {
+    copyclip(path);
+  }
+
   return (
     <Div>
       <Title>{title}</Title>
-      <Import>
-        <ImportPath data={data} />
-      </Import>
+      <Import onClick={onPathClick}>{path}</Import>
     </Div>
   );
 }
