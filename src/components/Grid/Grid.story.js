@@ -1,5 +1,5 @@
-import { storiesOf } from './node_modules/@storybook/react';
-import React from './node_modules/react';
+import { storiesOf } from '@storybook/react';
+import React from 'react';
 import Grid from './Grid.tsx';
 import Hero from '../../storybook/Hero';
 import Example from '../../storybook/Example';

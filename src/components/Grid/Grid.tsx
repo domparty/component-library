@@ -1,5 +1,5 @@
-import React, { cloneElement, ReactElement } from './node_modules/react';
-import { css } from './node_modules/goober';
+import React, { cloneElement, ReactElement } from 'react';
+import { css } from 'goober';
 
 export interface GridProps {
   children: ReactElement[];

@@ -1,4 +1,4 @@
-import React, { ReactNode } from './node_modules/react';
+import React, { ReactNode } from 'react';
 
 export interface HtmlProps {
   children: ReactNode;
