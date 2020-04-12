@@ -19,7 +19,6 @@ export default function Code({ children, type = 'jsx' }) {
   const c = useRef(children);
 
   useEffect(() => {
-    console.log('Prism.languages', Prism.languages);
     const html = Prism.highlight(c.current.replace(/^\n/, ''), Prism.languages[type], type);
     setCodeHtml(html);
   });
