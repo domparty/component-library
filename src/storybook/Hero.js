@@ -16,7 +16,11 @@ const Title = styled('h1')`
   margin: 0;
   display: block;
   padding-top: ${heroHeight / 3}px;
-  padding-left: 88px;
+  padding-left: 48px;
+
+  @media (min-width: 1100px) {
+    padding-left: 88px;
+  }
 `;
 
 function Hero({ title }) {
