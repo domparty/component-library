@@ -2,7 +2,7 @@
   "name": "@domparty/fe",
   "version": "0.0.3",
   "description": "Our white-label front-end component library. Filled with functional components to help you kick-start your project 🚀",
-  "main": "dist/library.js",
+  "main": "components/index.js",
   "scripts": {
     "start": "start-storybook -p 9000 -s public",
     "prepublish": "npm run build",
