@@ -5,6 +5,7 @@
   "main": "components/index.js",
   "scripts": {
     "start": "start-storybook -p 9000 -s public",
+    "build-storybook": "build-storybook -c .storybook -o .out",
     "prepublish": "npm run build",
     "build": "rm -rf ./dist && npm run build:components && npm run build:core && npm run build:preactcore",
     "build:components": "microbundle ./src/library.ts -o ./components/index.js --name @domparty/fe --no-compress --jsx=React.createElement",

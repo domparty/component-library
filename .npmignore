@@ -1,6 +1,8 @@
 node_modules
 public
 src
+.out
+.storybook
 .gitignore
 .rts2_cache_cjs
 .rts2_cache_es
