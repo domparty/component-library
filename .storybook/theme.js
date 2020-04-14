@@ -12,7 +12,7 @@ export default create({
 
   // UI
   appBg: '#000000',
-  appContentBg: light,
+  appContentBg: '#000000',
   appBorderColor: light,
   appBorderRadius: 0,
 
@@ -32,7 +32,7 @@ export default create({
   // Form colors
   inputBg: 'white',
   inputBorder: 'silver',
-  inputTextColor: 'black',
+  inputTextColor: '#ffffff',
   inputBorderRadius: 4,
 
   brandTitle: '@domparty/fe',

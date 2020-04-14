@@ -10,6 +10,8 @@ const P = styled('div')`
   @media (min-width: 1100px) {
     padding-left: 80px;
   }
+
+  background: ${(props) => (props.background ? props.background : '#ffffff')};
 `;
 
 const Link = styled('a')`
@@ -21,7 +23,7 @@ export default function Page({ children, height = null }) {
     <>
       <P height={height}>{children}</P>
       <FullWidth height={60}>
-        <P>
+        <P background="#000000">
           <Link
             href="https://github.com/domparty/component-library"
             rel="noreferrer noopener"
