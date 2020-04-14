@@ -6,6 +6,9 @@
 /components
 /core
 .out
+
+.DS_Store
+
 # Microbundle directories
 .rts2_cache_cjs
 .rts2_cache_es

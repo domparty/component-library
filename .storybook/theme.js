@@ -37,5 +37,5 @@ export default create({
 
   brandTitle: '@domparty/fe',
   brandUrl: 'https://github.com/domparty/component-library',
-  brandImage: 'https://avatars1.githubusercontent.com/u/61700544?s=200&v=4',
+  brandImage: '/images/logo.png',
 });
