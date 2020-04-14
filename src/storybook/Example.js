@@ -1,10 +1,10 @@
 import React from 'react';
-import { styled } from 'goober';
+import { styled, css } from 'goober';
 import Code from './Code';
 
 const width = (100 / 3) * 2;
 
-const Title = styled('h1')`
+const titleClass = css`
   margin: 0;
   display: block;
   padding-bottom: 12px;
@@ -14,7 +14,7 @@ const Description = styled('p')`
   padding: 12px 0;
 `;
 
-const CodeWrapper = styled('div')`
+const Wrapper = styled('div')`
   width: 80%;
 
   @media (min-width: 1100px) {
@@ -24,26 +24,24 @@ const CodeWrapper = styled('div')`
   padding: 12px 0;
 `;
 
-const ChildrenWrapper = styled('div')`
-  width: 80%;
-
-  @media (min-width: 1100px) {
-    width: ${width}%;
-  }
-
-  padding: 12px 0;
-`;
-
-function Example({ title, description, children, code }) {
+function Example({ title, description, children, code, interfaces }) {
   return (
     <div>
-      {title && <Title>{title}</Title>}
+      {title && <h1 className={titleClass}>{title}</h1>}
       {description && <Description>{description}</Description>}
-      <ChildrenWrapper>{children}</ChildrenWrapper>
+      <Wrapper>{children}</Wrapper>
       {code && (
-        <CodeWrapper>
+        <Wrapper>
           <Code>{code}</Code>
-        </CodeWrapper>
+        </Wrapper>
+      )}
+      {interfaces && (
+        <>
+          <h2 className={titleClass}>Interface</h2>
+          <Wrapper>
+            <Code>{interfaces}</Code>
+          </Wrapper>
+        </>
       )}
     </div>
   );

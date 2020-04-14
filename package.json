@@ -1,15 +1,15 @@
 {
   "name": "@domparty/fe",
-  "version": "0.0.3",
+  "version": "0.0.31",
   "description": "Our white-label front-end component library. Filled with functional components to help you kick-start your project 🚀",
   "main": "components/index.js",
   "scripts": {
     "start": "start-storybook -p 9000 -s public",
     "prepublish": "npm run build",
     "build": "rm -rf ./dist && npm run build:components && npm run build:core && npm run build:preactcore",
-    "build:components": "microbundle ./src/library.ts -o ./components/index.js --name @domparty/fe --jsx=React.createElement",
-    "build:core": "microbundle ./src/core/Core.tsx -o ./core/index.js --name Core --jsx=React.createElement",
-    "build:preactcore": "microbundle ./src/core/CorePreact.tsx -o ./core/preact/index.js --name CorePreact --jsx=h"
+    "build:components": "microbundle ./src/library.ts -o ./components/index.js --name @domparty/fe --no-compress --jsx=React.createElement",
+    "build:core": "microbundle ./src/core/Core.tsx -o ./core/index.js --name Core --no-compress --jsx=React.createElement",
+    "build:preactcore": "microbundle ./src/core/CorePreact.tsx -o ./core/preact/index.js --no-compress --name CorePreact --jsx=h"
   },
   "repository": {
     "type": "git",
