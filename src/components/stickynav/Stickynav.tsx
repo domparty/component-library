@@ -9,6 +9,7 @@ interface StickynavProps {
 export default function Stickynav({ children, stopAtSelector, offset = 0 }: StickynavProps) {
   const wrapperRef = useRef(null);
   const spanRef = useRef(null);
+  const spanOffsetTopChange = useRef(null);
   const stickyStyles = useRef({ position: 'fixed', top: offset });
 
   const [sticky, setSticky] = useState(false);
@@ -22,8 +23,23 @@ export default function Stickynav({ children, stopAtSelector, offset = 0 }: Stic
         if (scrollUntilEl === null) return;
 
         const { pageYOffset } = window;
+
+        if (spanOffsetTopChange.current === null) {
+          // @ts-ignore
+          spanOffsetTopChange.current = spanRef.current.offsetTop;
+        }
+
         // @ts-ignore
-        const spanY = spanRef.current.offsetTop - pageYOffset;
+        let spanY = spanRef.current.offsetTop - pageYOffset;
+
+        let difference = 0;
+        // @ts-ignore - Something changed that shouldn't change
+        if (spanOffsetTopChange.current !== spanRef.current.offsetTop) {
+          // @ts-ignore
+          difference = spanOffsetTopChange.current - spanRef.current.offsetTop;
+        }
+
+        spanY += difference;
 
         const scrollUntilY =
           // @ts-ignore

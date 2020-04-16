@@ -62,13 +62,13 @@ storiesOf('@domparty|Components', module).add('Stickynav', (data) => (
         </div>
         <div data-js="stickyselector" style={{ display: 'flex' }}>
           <div style={{ width: 200, paddingTop: 70 }}>
-            <Stickynav offset={40} stopAtSelector={'[data-js="sticky2selector"]'}>
+            {/* <Stickynav offset={40} stopAtSelector={'[data-js="sticky2selector"]'}>
               <p>Item</p>
               <p>Item</p>
               <p>Item</p>
               <p>Item</p>
               <p>Item</p>
-            </Stickynav>
+            </Stickynav> */}
           </div>
           <div style={{ width: 'calc(100% - 200px)' }}>
             <h1>Title</h1>
