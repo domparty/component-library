@@ -31,9 +31,12 @@ function Example({ title, description, children, code, interfaces }) {
       {description && <Description>{description}</Description>}
       <Wrapper>{children}</Wrapper>
       {code && (
-        <Wrapper>
-          <Code>{code}</Code>
-        </Wrapper>
+        <>
+          <h2 className={titleClass}>Code example</h2>
+          <Wrapper>
+            <Code>{code}</Code>
+          </Wrapper>
+        </>
       )}
       {interfaces && (
         <>
