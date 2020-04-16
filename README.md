@@ -18,7 +18,7 @@ import the provider from `@domparty/fe/core/preact`. This way your application i
 For default React apps, the following snippet can be used.  
 _use `import { Provider } from '@domparty/fe/core/preact';` for Preact_
 
-```
+```javascript
 import React from 'react';
 import { Provider } from '@domparty/fe/core';
 
@@ -27,14 +27,13 @@ export default () => (
     <App />
   </Provider>
 );
-
 ```
 
 ### Next.js apps
 
 To implement @domparty/fe into Next.js make sure the \_app.js file implements the <Provider /> component.
 
-```
+```javascript
 import React from 'react';
 import { Provider } from '@domparty/fe/core';
 
@@ -51,7 +50,7 @@ To make sure all styles are rendered correctly on the server. The component libr
 
 To use this feature in Next.js apps, make sure the `getInitialProps` in your \_document file uses this function.
 
-```
+```javascript
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCss } from '@domparty/fe/core';
 
