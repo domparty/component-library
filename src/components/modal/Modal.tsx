@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { styled } from 'goober';
+import { styled, css } from 'goober';
 
 const selector = 'domparty-portal';
 
-interface WrapperInterface {
+interface BackdropInterface {
   background: string;
   onClick: () => void;
 }
@@ -14,30 +14,50 @@ interface InnerInterface {
   className?: string;
 }
 
-const ModalWrapper = styled<WrapperInterface>('div')`
+const Backdrop = styled<BackdropInterface>('div')`
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: ${(props) => (props.background ? props.background : 'rgba(0, 0, 0, 0.3)')};
   position: absolute;
+`;
+
+const ModalWrapper = styled('div')`
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 100;
 `;
 
 const ModalInner = styled<InnerInterface>('div')`
   background: white;
   padding: ${(props) => props.padding || 20}px;
+  overflow: scroll;
+  z-index: 110;
+`;
+
+const bodyClass = css`
+  overflow: hidden;
 `;
 
 function Portal({ children, domNode, background, padding, close, className }) {
   return createPortal(
-    <ModalWrapper onClick={close} background={background}>
-      <ModalInner className={className} padding={padding}>
-        {children}
-      </ModalInner>
-    </ModalWrapper>,
+    <>
+      <ModalWrapper>
+        <Backdrop onClick={close} background={background}>
+          {null}
+        </Backdrop>
+        <ModalInner className={className} padding={padding}>
+          {children}
+        </ModalInner>
+      </ModalWrapper>
+    </>,
     domNode
   );
 }
@@ -79,7 +99,12 @@ export default function Modal({
   }, []);
 
   // Listen to visible changes
-  useEffect(() => setInnerVisible(visible), [visible]);
+  useEffect(() => {
+    if (visible) document.body.classList.add(bodyClass);
+    if (visible === false) document.body.classList.remove(bodyClass);
+
+    setInnerVisible(visible);
+  }, [visible]);
 
   // Handle escape key
   useEffect(() => {
