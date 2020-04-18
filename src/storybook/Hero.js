@@ -7,7 +7,7 @@ import config from './config';
 const heroHeight = 250;
 
 const Div = styled('div')`
-  width: calc(100% + 16px);
+  width: calc(100%);
   height: ${heroHeight}px;
   background: black;
   margin: -8px -8px 0 -8px;

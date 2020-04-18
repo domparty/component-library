@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'goober';
 
 const Div = styled('div')`
-  width: calc(100% + 16px);
+  width: calc(100%);
   padding: ${(props) => props.height / 2}px 0px;
   background: ${(props) => props.background};
   margin: -8px -8px 0 -8px;
