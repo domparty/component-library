@@ -41,7 +41,6 @@ interface ModalProps {
   onClose: () => any;
   visible: boolean;
   background?: string;
-  padding?: number;
   className?: string;
 }
 `;
