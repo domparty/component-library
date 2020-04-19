@@ -10,7 +10,6 @@ interface BackdropInterface {
 }
 
 interface InnerInterface {
-  padding: number;
   className?: string;
 }
 
@@ -37,7 +36,7 @@ const ModalWrapper = styled('div')`
 
 const ModalInner = styled<InnerInterface>('div')`
   background: white;
-  padding: ${(props) => props.padding || 20}px;
+  padding: 20px;
   overflow: scroll;
   z-index: 110;
 `;
@@ -46,16 +45,14 @@ const bodyClass = css`
   overflow: hidden;
 `;
 
-function Portal({ children, domNode, background, padding, close, className }) {
+function Portal({ children, domNode, background, close, className }) {
   return createPortal(
     <>
       <ModalWrapper>
         <Backdrop onClick={close} background={background}>
           {null}
         </Backdrop>
-        <ModalInner className={className} padding={padding}>
-          {children}
-        </ModalInner>
+        <ModalInner className={className}>{children}</ModalInner>
       </ModalWrapper>
     </>,
     domNode
@@ -80,7 +77,6 @@ export default function Modal({
   visible = false,
   onClose = () => {},
   background,
-  padding,
   className,
 }: ModalProps) {
   const [innerVisible, setInnerVisible] = useState<boolean>(visible);
@@ -126,6 +122,6 @@ export default function Modal({
   return (
     domNode &&
     innerVisible &&
-    Portal({ children: children({ close }), domNode, background, padding, close, className })
+    Portal({ children: children({ close }), domNode, background, close, className })
   );
 }

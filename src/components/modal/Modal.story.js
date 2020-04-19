@@ -62,6 +62,7 @@ storiesOf('@domparty|Components', module).add('Modal', (data) => {
             className={css`
               width: 400px;
               height: 80%;
+              padding: 40px;
             `}
             onClose={() => setVisible(false)}
             visible={visible}
