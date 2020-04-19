@@ -81,7 +81,7 @@ export default function Modal({
   const [innerVisible, setInnerVisible] = useState<boolean>(visible);
   const [domNode, setDomNode] = useState<HTMLElement | null>(null);
 
-  // Create required div
+  // Create required div and handle escape key
   useEffect(() => {
     let div = document.getElementById(selector);
     if (div === null) {
@@ -91,18 +91,7 @@ export default function Modal({
     }
 
     setDomNode(div);
-  }, []);
 
-  // Listen to visible changes
-  useEffect(() => {
-    if (visible) document.body.classList.add(bodyClass);
-    if (visible === false) document.body.classList.remove(bodyClass);
-
-    setInnerVisible(visible);
-  }, [visible]);
-
-  // Handle escape key
-  useEffect(() => {
     function listenForEscape(e) {
       if (e.keyCode === 27) close();
     }
@@ -112,6 +101,14 @@ export default function Modal({
       document.removeEventListener('keyup', listenForEscape);
     };
   }, []);
+
+  // Listen to visible changes
+  useEffect(() => {
+    if (visible) document.body.classList.add(bodyClass);
+    if (visible === false) document.body.classList.remove(bodyClass);
+
+    setInnerVisible(visible);
+  }, [visible]);
 
   function close() {
     setInnerVisible(false);
