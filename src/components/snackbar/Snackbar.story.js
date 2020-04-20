@@ -56,8 +56,12 @@ interface SnackbarProps {
 `;
 
 const SnackbarWrapper = styled('div')`
-  height: 40px;
+  height: 80px;
   padding: 10px 0;
+
+  @media (min-width: 600px) {
+    height: 40px;
+  }
 `;
 
 storiesOf('@domparty|Components', module).add('Snackbar', (data) => {
@@ -73,7 +77,7 @@ storiesOf('@domparty|Components', module).add('Snackbar', (data) => {
 
       <Page>
         <Description>{lipsum}</Description>
-        <p>{snackbarClosed && `Snackbar closed`}</p>
+        <p>{snackbarClosed && `Snackbar action clicked`}</p>
         <Example title="Snackbar" code={example} interfaces={interfaces}>
           <SnackbarWrapper>
             <Snackbar
@@ -89,7 +93,7 @@ storiesOf('@domparty|Components', module).add('Snackbar', (data) => {
           <SnackbarWrapper>
             <Snackbar
               actionClick={snackbarCallback}
-              width="80%"
+              width="100%"
               persistent
               inline
               actionLabel="Action"
