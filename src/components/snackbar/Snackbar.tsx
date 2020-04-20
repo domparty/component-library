@@ -30,20 +30,19 @@ const SnackbarWrapper = styled<SnackbarWrapperProps>('div')`
       ? `
     position: fixed;
     bottom: 10px;
-    width: 80%;
     margin: 0 auto;
-
-    @media (min-width: 600px) {
-      right: 10px;
-    }
   `
       : ''}
-  width: ${(props) =>
-    typeof props.width === 'string'
-      ? props.width.indexOf('%') > -1
-        ? props.width
-        : `${props.width}px`
-      : `${props.width}px`};
+  width: calc(100% - 120px);
+  @media (min-width: 600px) {
+    ${(props) => (props.inline === false ? 'right: 10px' : '')};
+    width: ${(props) =>
+      typeof props.width === 'string'
+        ? props.width.indexOf('%') > -1
+          ? props.width
+          : `${props.width}px`
+        : `${props.width}px`};
+  }
   opacity: ${(props) => (props.visible ? 1 : 0)};
   transition: opacity ${(props) => props.fadeOutTime}ms ease-in-out;
   display: flex;
