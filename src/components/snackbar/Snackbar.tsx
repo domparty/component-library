@@ -7,11 +7,12 @@ interface SnackbarProps {
   inline?: boolean;
   actionLabel?: string | boolean;
   actionClick?: () => void;
-  visibleTime: number | null;
+  visibleTime?: number | null;
   background?: string;
   textColor?: string;
-  labelColor?: string;
+  actionColor?: string;
   fadeOutTime?: number;
+  width?: number | string;
 }
 
 interface SnackbarWrapperProps {
@@ -20,6 +21,7 @@ interface SnackbarWrapperProps {
   inline: boolean;
   visible: boolean;
   fadeOutTime: number;
+  width: number | string;
 }
 
 const SnackbarWrapper = styled<SnackbarWrapperProps>('div')`
@@ -33,10 +35,15 @@ const SnackbarWrapper = styled<SnackbarWrapperProps>('div')`
 
     @media (min-width: 600px) {
       right: 10px;
-      width: 400px;
     }
   `
       : ''}
+  width: ${(props) =>
+    typeof props.width === 'string'
+      ? props.width.indexOf('%') > -1
+        ? props.width
+        : `${props.width}px`
+      : `${props.width}px`};
   opacity: ${(props) => (props.visible ? 1 : 0)};
   transition: opacity ${(props) => props.fadeOutTime}ms ease-in-out;
   display: flex;
@@ -51,6 +58,7 @@ const SnackbarWrapper = styled<SnackbarWrapperProps>('div')`
 
 interface SnackbarActionProps {
   onClick: () => void;
+  color: string;
 }
 
 interface SnackbarInnerProps {
@@ -58,13 +66,15 @@ interface SnackbarInnerProps {
 }
 
 const SnackbarInner = styled<SnackbarInnerProps>('div')`
-  width: ${(props) => (props.fullWidth ? 100 : 80)}%;
+  width: ${(props) => (props.fullWidth ? '100%' : 'calc(100% - 100px)')};
 `;
 
 const SnackbarAction = styled<SnackbarActionProps>('div')`
-  width: 20%;
+  width: 100px;
+  color: ${(props) => props.color};
   font-weight: bold;
   cursor: pointer;
+  text-align: right;
 `;
 
 function Snackbar({
@@ -76,8 +86,9 @@ function Snackbar({
   visibleTime = 3000,
   background = '#323232',
   textColor = '#ffffff',
-  labelColor = '#ffffff',
+  actionColor = '#ffffff',
   fadeOutTime = 200,
+  width = 400,
 }: SnackbarProps) {
   const [visible, setVisible] = useState(false);
   const [innerVisible, setInnerVisible] = useState(true);
@@ -103,6 +114,7 @@ function Snackbar({
   return (
     innerVisible && (
       <SnackbarWrapper
+        width={width}
         visible={visible}
         fadeOutTime={fadeOutTime}
         inline={inline}
@@ -110,7 +122,11 @@ function Snackbar({
         background={background}
       >
         <SnackbarInner fullWidth={actionLabel === false}>{children}</SnackbarInner>
-        {actionLabel && <SnackbarAction onClick={onActionClick}>{actionLabel}</SnackbarAction>}
+        {actionLabel && (
+          <SnackbarAction color={actionColor} onClick={onActionClick}>
+            {actionLabel}
+          </SnackbarAction>
+        )}
       </SnackbarWrapper>
     )
   );
