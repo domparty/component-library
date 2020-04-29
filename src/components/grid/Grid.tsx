@@ -40,6 +40,7 @@ export default function Grid({
 
   function renderChild(c) {
     const dataColumns = c.props['data-columns'] || 1;
+    const externalClassname = c.props['classname'] || false;
 
     const className = css`
       ${typeof columns === 'number'
@@ -69,7 +70,9 @@ export default function Grid({
         .join('')}
     `;
 
-    return cloneElement(c, { className });
+    return cloneElement(c, {
+      className: `${className}${externalClassname ? ` ${externalClassname}` : ''}`,
+    });
   }
 
   return (
