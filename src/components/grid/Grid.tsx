@@ -28,6 +28,7 @@ export default function Grid({
     display: 'flex',
     flexWrap: 'wrap',
     margin: -(gap / 2),
+    width: '100%',
     ...innerStyle,
     ...(fullHeight
       ? {
