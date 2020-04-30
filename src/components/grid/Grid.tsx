@@ -9,6 +9,7 @@ export interface GridProps {
   fullHeight?: boolean;
   style?: {};
   slices?: any;
+  className?: string | null;
 }
 
 export default function Grid({
@@ -18,6 +19,7 @@ export default function Grid({
   gap = 0,
   fullHeight = false,
   style: innerStyle = {},
+  className = null,
 }: GridProps) {
   if (typeof children === 'undefined') return null;
   const childs = Array.isArray(children) === false ? [children] : children;
@@ -70,15 +72,17 @@ export default function Grid({
         .join('')}
     `;
 
-    console.log('externalClassname', externalClassname);
-
     return cloneElement(c, {
       className: `${className}${externalClassname ? ` ${externalClassname}` : ''}`,
     });
   }
 
+  const wrapperProps = {
+    ...(className ? { className, style: wrapperStyle } : { style: wrapperStyle }),
+  };
+
   return (
     // @ts-ignore
-    <div style={wrapperStyle}>{childs.map(renderChild)}</div>
+    <div {...wrapperProps}>{childs.map(renderChild)}</div>
   );
 }
