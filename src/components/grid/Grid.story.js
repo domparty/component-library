@@ -12,7 +12,7 @@ const div = (columns = 1, color = '#C295D8', height = 30) => (
 );
 
 const simpleExample = `
-<Grid gap={24} breakpoints={[200, 400]} columns={[1, 3]}>
+<Grid gap={24} breakpoints={[1000]} columns={[1, 3]}>
   <div data-columns={2} style={{ backgroundColor: '#C295D8' }} />
   <div data-columns={1} style={{ backgroundColor: '#C295D8' }} />
   <div data-columns={1} style={{ backgroundColor: '#C295D8' }} />
@@ -67,7 +67,7 @@ storiesOf('@domparty|Components', module).add('Grid', (data) => (
       <Description>{lipsum}</Description>
 
       <Example title="Simple grid" code={simpleExample}>
-        <Grid gap={24} breakpoints={[200, 400]} columns={[1, 3]}>
+        <Grid gap={24} breakpoints={[1000]} columns={[1, 3]}>
           {div(2)}
           {div(1)}
           {div(1)}

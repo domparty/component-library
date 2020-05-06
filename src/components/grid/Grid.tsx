@@ -23,6 +23,7 @@ export default function Grid({
 }: GridProps) {
   if (typeof children === 'undefined') return null;
   const childs = Array.isArray(children) === false ? [children] : children;
+  if (breakpoints.length !== 0 && breakpoints[0] !== 0) breakpoints.unshift(0);
 
   if (columns === null) columns = 1;
 
@@ -60,13 +61,13 @@ export default function Grid({
           const marginRight = gapDivided;
           const widthEach = 100 / columnAmount;
           return `
-            @media(min-width: ${bp}px) {
+            ${bp === 0 ? '' : `@media(min-width: ${bp}px) {`}
               width: calc(${widthEach * dataColumns}% - ${gap}px);
               margin-bottom: ${gapDivided}px;
               margin-top: ${gapDivided}px;
               margin-left: ${marginLeft}px;
               margin-right: ${marginRight}px;
-            }
+            ${bp === 0 ? '' : '}'}
           `;
         })
         .join('')}
